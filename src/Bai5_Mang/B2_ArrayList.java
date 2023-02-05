@@ -6,50 +6,61 @@ import java.util.ArrayList;
 
 public class B2_ArrayList {
     public static void main(String[] args) {
-        ArrayList<SinhVien> listSV = new ArrayList<>();
-        SinhVien sv1 = new SinhVien();
-        SinhVien sv2 = new SinhVien("ngahtt20", "nga", 2004, 5);
+        /*
+            Định nghĩa: là mảng danh sách, số lượng phần tử động,
+                        có thể lưu các phần tử trùng giá trị
+        */
 
-        listSV.add(sv1);
-        listSV.add(sv2);
-        listSV.add(new SinhVien("sinh vien 3", "ngahihi", 2000, 10));
+        // Khai báo một mảng danh sách được xác định kiểu dữ liệu là Integer
+        ArrayList<Integer> list = new ArrayList<>();
 
-        ArrayList listKhongXacDinh = new ArrayList();
-        listKhongXacDinh.add(sv2);
-        listKhongXacDinh.add(true);
-        listKhongXacDinh.add("nga");
+        // Khai báo một mảng danh sách với kiểu dữ liệu lưu trữ mặc đinh - Object
+        ArrayList list2 = new ArrayList();
 
-        for (SinhVien sv : listSV) {
-            System.out.println(sv.toString());
-        }
-        // xoa phan tu tai vi tri
-        listSV.remove(2);
+        //them gia tri vao mang danh sach
+        list2.add(3);
+        list2.add(true);
+        list2.add(new SinhVien());
 
-        // xoa phan tu theo tinh chat
-        listSV.remove(sv1);
-
-        System.out.println(listSV.size());
-        System.out.println("____________________________");
-        for (Object sv : listSV) {
-            System.out.println(sv.toString());
+        //for each - java
+        for(Object ob : list2){
+            //System.out.println(ob.toString());
         }
 
-        //limit in the feature
-        listSV.sort((o1, o2) -> {
-            return 0; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/LambdaBody
-        });
 
-        for (Object object : listKhongXacDinh) {
-            System.out.println(object.toString());
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+
+        // lấy giá trị tại vị trí x
+        list.get(0);
+
+        // thay thế giá trị vị trị x
+        list.set(4, 6);
+
+        //System.out.println(list.get(4));
+
+        // xoá phần tử tại vị trí x
+        list.remove(2);
+
+        list.add(4);
+
+        // xoá phần tử với giá trị y đầu tiên trong mảng
+        list.remove((Integer) 4);
+
+        for(Integer element : list){
+            System.out.println(element);
         }
-        // Lam trong list
-        listKhongXacDinh.clear();
 
-        System.out.println("Sau khi clear ne!!!!!");
+        System.out.println("So luong phan tu trong list la: " + list.size());
+        // xoá tất cả các phần tử
+        list.clear();
 
-        for (Object object : listKhongXacDinh) {
-            System.out.println(object.toString());
-        }
+        // lấy ra kích thước của mảng danh sách
+        list.size();
+
 
     }
 }
