@@ -1,4 +1,4 @@
-package B5_Mang;
+package Bai5_Mang;
 
 import java.util.Arrays;
 import java.util.Scanner;

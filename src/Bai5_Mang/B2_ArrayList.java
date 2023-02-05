@@ -1,4 +1,4 @@
-package B5_Mang;
+package Bai5_Mang;
 
 import Bai4_OOP.SinhVien;
 
