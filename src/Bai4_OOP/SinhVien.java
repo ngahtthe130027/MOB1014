@@ -32,6 +32,7 @@ public class SinhVien {
         - Get: lấy giá trị
         - Set: gán giá trị
     */
+
     public String getMsv() {
         return msv;
     }
