@@ -1,5 +1,7 @@
 package Bai6_KeThua;
 
+import java.util.Scanner;
+
 public class NhanVien {
     private String maNV;
     private String hoTen;
@@ -60,5 +62,19 @@ public class NhanVien {
         System.out.println("Mã Nhân Viên: " + this.maNV);
         System.out.println("Họ và tên: " + this.hoTen);
         System.out.println("Lương: " + this.luong);
+    }
+    
+    public NhanVien nhapThongTin(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhập thông tin nhân viên:");
+        System.out.println("_______________________");
+        System.out.println("Mã nhân viên: ");
+        String maNV = sc.nextLine();
+        System.out.println("Họ tên:");
+        String hoTen = sc.nextLine();
+        System.out.println("Lương:");
+        double luong = sc.nextDouble();
+        NhanVien nv = new NhanVien(maNV, hoTen, luong);
+        return nv;
     }
 }

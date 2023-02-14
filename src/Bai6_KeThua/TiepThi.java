@@ -1,5 +1,7 @@
 package Bai6_KeThua;
 
+import java.util.Scanner;
+
 public class TiepThi extends NhanVien{
     private double doanhSo;
     private double hueHong;
@@ -32,5 +34,17 @@ public class TiepThi extends NhanVien{
     @Override
     public double getThuNhap() {
         return super.getThuNhap() + this.hueHong;
+    }
+    
+    @Override
+    public NhanVien nhapThongTin() {
+        Scanner sc = new Scanner(System.in);
+        NhanVien nv = super.nhapThongTin(); 
+        System.out.println("Hoa hong: ");
+        double hoaHong = sc.nextDouble();
+        System.out.println("Doanh so: ");
+        double doanhSo = sc.nextDouble();
+        TiepThi tt = new TiepThi(doanhSo, hoaHong, nv.getMaNV(), nv.getHoTen(), nv.getLuong());
+        return tt;
     }
 }
