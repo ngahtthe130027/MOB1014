@@ -1,5 +1,7 @@
 package Bai6_KeThua;
 
+import java.util.Scanner;
+
 public class TruongPhong extends NhanVien {
     private double trachNhiem;
 
@@ -26,8 +28,19 @@ public class TruongPhong extends NhanVien {
 
     @Override
     public void xuatThongTin() {
-        super.xuatThongTin();
+        super.xuatThongTin(); 
         System.out.println("Luong Trach Nhiem: " + this.trachNhiem);
     }
+
+    @Override
+    public NhanVien nhapThongTin() {
+        Scanner sc = new Scanner(System.in);
+        NhanVien nv = super.nhapThongTin(); 
+        System.out.println("Luong trach nhiem: ");
+        double luongTN = sc.nextDouble();
+        TruongPhong tp = new TruongPhong(luongTN, nv.getMaNV(), nv.getHoTen(), nv.getLuong());
+        return tp;
+                
+    } 
 
 }

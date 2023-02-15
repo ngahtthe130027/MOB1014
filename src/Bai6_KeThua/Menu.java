@@ -4,6 +4,8 @@
  */
 package Bai6_KeThua;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,7 +17,11 @@ public class Menu {
     //static QuanLyNhanVien _ql = new QuanLyNhanVien();
 
     public static void main(String[] args) {
-        QuanLyNhanVien ql = new QuanLyNhanVien();
+        List<NhanVien> listNV = new ArrayList<>();
+        listNV.add(new NhanVien("ngahtt4", "Ha Thi Thanh Nga", 5));
+        listNV.add(new TiepThi(1, 3, "xuannt", "Nguyen Xuan", 6));
+        listNV.add(new TruongPhong(5, "truongnt", "Ngo Truong", 10));
+        QuanLyNhanVien ql = new QuanLyNhanVien(listNV);
         Scanner sc = new Scanner(System.in);
         while (true) {
             int option = ql.menu();

@@ -16,9 +16,17 @@ import java.util.Scanner;
  */
 public class QuanLyNhanVien {
 
-    //bien toan cuc
+     //bien toan cuc
     List<NhanVien> _listNhanVien = new ArrayList<>();
     Scanner _sc = new Scanner(System.in);
+    
+    public QuanLyNhanVien(List<NhanVien> list){
+        _listNhanVien = list;
+    }
+    
+    public QuanLyNhanVien(){
+        
+    }
 
     public int menu() {
         System.out.println("Quản lý Nhân Viên");
@@ -41,22 +49,50 @@ public class QuanLyNhanVien {
     public void nhap() {
         System.out.println("Nhập thông tin nhân viên:");
         System.out.println("_______________________");
-        System.out.println("Mã nhân viên: ");
-        String maNV = _sc.nextLine();
-        System.out.println("Họ tên:");
-        String hoTen = _sc.nextLine();
-        System.out.println("Lương:");
-        double luong = _sc.nextDouble();
-
-        NhanVien nv = new NhanVien(maNV, hoTen, luong);
-        _listNhanVien.add(nv);
+        System.out.println("Chon Phong Ban:");
+        System.out.println("1. Hanh Chinh");
+        System.out.println("2. Tiep Thi");
+        System.out.println("3. Truong Phong");
+        
+        int option = _sc.nextInt();
+        
+        switch (option) {
+            case 1:
+                NhanVien nv = new NhanVien();
+                nv = nv.nhapThongTin();
+                _listNhanVien.add(nv);
+                break;
+            case 2:
+                TiepThi tt = new TiepThi();
+                tt = (TiepThi) tt.nhapThongTin();
+                _listNhanVien.add(tt);
+                break;
+            case 3:
+                TruongPhong tp = new TruongPhong();
+                tp = (TruongPhong) tp.nhapThongTin();
+                _listNhanVien.add(tp);
+                break;
+            default:
+                break;
+        }
     }
 
     public void xuat() {
         System.out.println("Thông tin của Nhân Viên ");
         for (NhanVien nhanVien : _listNhanVien) {
             System.out.println("____________________");
-            nhanVien.xuatThongTin();
+            
+            //Downcasting
+            if(nhanVien instanceof TiepThi){
+                //tt = (TiepThi) nhanVien; //ep kieu tuong minh
+                TiepThi tiepThi = (TiepThi) nhanVien;
+                tiepThi.xuatThongTin();
+            }else if(nhanVien instanceof TruongPhong tp){
+                TruongPhong truongPhong = tp; // ep kieu ngam dinh
+                tp.xuatThongTin();
+            }else{
+                nhanVien.xuatThongTin(); 
+            }
         }
     }
 
